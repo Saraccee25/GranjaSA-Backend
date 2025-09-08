@@ -1,5 +1,6 @@
 package com.example.entrega2.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.persistence.*;
 import lombok.*;
@@ -25,11 +26,14 @@ public class Porcino {
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+    @JsonBackReference
     private Cliente cliente;
 
-    @OneToOne(cascade = CascadeType.ALL)
+
+    @OneToOne
     @JoinColumn(name = "alimentacion_id", referencedColumnName = "id")
     private Alimentacion alimentacion;
+
 
     public Long getId() {
         return id;
