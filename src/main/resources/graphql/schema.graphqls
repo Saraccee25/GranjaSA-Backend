@@ -43,6 +43,22 @@ type Porcino {
     alimentacion: Alimentacion
 }
 
+extend type Mutation {
+  createPorcino(input: PorcinoInput!): Porcino
+  updatePorcino(id: ID!, input: PorcinoInput!): Porcino
+  deletePorcino(id: ID!): Boolean
+}
+
+input PorcinoInput {
+  identificacion: String
+  raza: String
+  edad: Int
+  peso: Float
+  clienteCedula: ID
+  alimentacionId: ID
+}
+
+
 type Alimentacion {
     id: ID!
     descripcion: String
