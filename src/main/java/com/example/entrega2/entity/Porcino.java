@@ -30,8 +30,8 @@ public class Porcino {
     private Cliente cliente;
 
 
-    @OneToOne
-    @JoinColumn(name = "alimentacion_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "alimentacion_id")
     private Alimentacion alimentacion;
 
 
