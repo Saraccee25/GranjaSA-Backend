@@ -1,0 +1,4 @@
+2025-09-12 14:20:52.957489-05:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM ALIMENTACION CLIENTE [*]PORCINO"
+Syntax error in SQL statement "SELECT * FROM ALIMENTACION CLIENTE [*]PORCINO"; SQL statement:
+SELECT * FROM ALIMENTACION CLIENTE PORCINO [42000-232]

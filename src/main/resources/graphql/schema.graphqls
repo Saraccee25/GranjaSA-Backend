@@ -1,3 +1,36 @@
 type Query {
     hello: String
+    allClientes: [Cliente]
+    clienteById(cedula: ID!): Cliente
+
+    allPorcinos: [Porcino]
+    porcinoById(id: ID!): Porcino
+
+    allAlimentaciones: [Alimentacion]
+    alimentacionById(id: ID!): Alimentacion
+}
+
+type Cliente {
+    cedula: ID!
+    nombres: String
+    apellidos: String
+    direccion: String
+    telefono: String
+    porcinos: [Porcino]
+}
+
+type Porcino {
+    id: ID!
+    identificacion: String
+    raza: String
+    edad: Int
+    peso: Float
+    cliente: Cliente
+    alimentacion: Alimentacion
+}
+
+type Alimentacion {
+    id: ID!
+    descripcion: String
+    dosis: String
 }
