@@ -19,6 +19,20 @@ type Cliente {
     porcinos: [Porcino]
 }
 
+type Mutation {
+  createCliente(input: ClienteInput!): Cliente
+  updateCliente(cedula: ID!, input: ClienteInput!): Cliente
+  deleteCliente(cedula: ID!): Boolean
+}
+
+input ClienteInput {
+  cedula: ID
+  nombres: String
+  apellidos: String
+  direccion: String
+  telefono: String
+}
+
 type Porcino {
     id: ID!
     identificacion: String
