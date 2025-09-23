@@ -20,9 +20,17 @@ type Cliente {
 }
 
 type Mutation {
-  createCliente(input: ClienteInput!): Cliente
-  updateCliente(cedula: ID!, input: ClienteInput!): Cliente
-  deleteCliente(cedula: ID!): Boolean
+    createCliente(input: ClienteInput!): Cliente
+    updateCliente(cedula: ID!, input: ClienteInput!): Cliente
+    deleteCliente(cedula: ID!): Boolean
+
+    createAlimentacion(input: AlimentacionInput!): Alimentacion
+    updateAlimentacion(id: ID!, input: AlimentacionInput!): Alimentacion
+    deleteAlimentacion(id: ID!): Boolean
+
+    createPorcino(input: PorcinoInput!): Porcino
+    updatePorcino(id: ID!, input: PorcinoInput!): Porcino
+    deletePorcino(id: ID!): Boolean
 }
 
 input ClienteInput {
@@ -43,11 +51,6 @@ type Porcino {
     alimentacion: Alimentacion
 }
 
-extend type Mutation {
-  createPorcino(input: PorcinoInput!): Porcino
-  updatePorcino(id: ID!, input: PorcinoInput!): Porcino
-  deletePorcino(id: ID!): Boolean
-}
 
 input PorcinoInput {
   identificacion: String
@@ -64,3 +67,10 @@ type Alimentacion {
     descripcion: String
     dosis: String
 }
+
+input AlimentacionInput {
+  descripcion: String
+  dosis: String
+}
+
+
