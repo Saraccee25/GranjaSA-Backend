@@ -2,11 +2,11 @@ package com.example.entrega2.dto;
 
 public class PorcinoInput {
     private String identificacion;
-    private String raza;   // ⚠️ Como string, GraphQL puede mapear a enum
+    private String raza;
     private int edad;
     private double peso;
-    private String clienteCedula; // ID del cliente dueño del porcino
-    private Long alimentacionId;  // ID de la alimentación asociada
+    private String clienteCedula;
+    private Long alimentacionId;
 
     public PorcinoInput() {}
 

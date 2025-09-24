@@ -20,7 +20,6 @@ public class AlimentacionGraphQLController {
         this.alimentacionService = alimentacionService;
     }
 
-    // Queries
     @QueryMapping
     public List<Alimentacion> allAlimentaciones() {
         return alimentacionService.findAll();
@@ -31,7 +30,6 @@ public class AlimentacionGraphQLController {
         return alimentacionService.findById(id);
     }
 
-    // Mutations
     @MutationMapping
     public Alimentacion createAlimentacion(@Argument AlimentacionInput input) {
         Alimentacion alimentacion = new Alimentacion();

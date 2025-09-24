@@ -1,9 +1,5 @@
 package com.example.entrega2.dto;
 
-/**
- * DTO para representar la entrada de datos de un Cliente en GraphQL.
- * Esto evita exponer directamente la entidad JPA en las mutaciones.
- */
 public class ClienteInput {
     private String cedula;
     private String nombres;

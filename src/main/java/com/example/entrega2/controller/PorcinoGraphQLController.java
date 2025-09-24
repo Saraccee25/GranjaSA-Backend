@@ -24,10 +24,6 @@ public class PorcinoGraphQLController {
         this.alimentacionService = alimentacionService;
     }
 
-    // --------------------------
-    // QUERIES
-    // --------------------------
-
     @QueryMapping
     public List<Porcino> allPorcinos() {
         return porcinoService.findAll();
@@ -38,23 +34,17 @@ public class PorcinoGraphQLController {
         return porcinoService.findById(id).orElse(null);
     }
 
-    // --------------------------
-    // MUTATIONS
-    // --------------------------
-
     @MutationMapping
     public Porcino createPorcino(@Argument("input") PorcinoInput input) {
         Porcino porcino = new Porcino();
         porcino.setIdentificacion(input.getIdentificacion());
-        porcino.setRaza(Raza.valueOf(input.getRaza())); // mapear enum
+        porcino.setRaza(Raza.valueOf(input.getRaza()));
         porcino.setEdad(input.getEdad());
         porcino.setPeso(input.getPeso());
 
-        // relacion con Cliente
         clienteService.findById(input.getClienteCedula())
                 .ifPresent(porcino::setCliente);
 
-        // relacion con Alimentacion
         if (input.getAlimentacionId() != null) {
             alimentacionService.findById(input.getAlimentacionId())
                     .ifPresent(porcino::setAlimentacion);

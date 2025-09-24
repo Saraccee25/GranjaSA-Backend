@@ -23,10 +23,6 @@ public class ClienteGraphQLController {
         this.clienteService = clienteService;
     }
 
-    // --------------------------
-    // QUERIES
-    // --------------------------
-
     @QueryMapping
     public List<Cliente> allClientes() {
         return clienteService.findAll();
@@ -36,10 +32,6 @@ public class ClienteGraphQLController {
     public Cliente clienteById(@Argument String cedula) {
         return clienteService.findById(cedula).orElse(null);
     }
-
-    // --------------------------
-    // MUTATIONS
-    // --------------------------
 
     @MutationMapping
     public Cliente createCliente(@Argument("input") ClienteInput input) {
@@ -73,10 +65,6 @@ public class ClienteGraphQLController {
             return true;
         }).orElse(false);
     }
-
-    // --------------------------
-    // RESOLVERS (nested fields)
-    // --------------------------
 
     @SchemaMapping(typeName = "Cliente", field = "porcinos")
     @Transactional
